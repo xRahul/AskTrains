@@ -7,10 +7,11 @@
   "license": "Apache Version 2.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node src/index.js",
     "build": "rimraf dist/ && babel ./src/ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "prestart": "npm run build",
     "start": "node dist/index.js",
-    "prod": "node dist/index.js"
+    "prod": "npm run build && node dist/index.js"
   },
   "dependencies": {
     "actions-on-google": "^2.1.3",
