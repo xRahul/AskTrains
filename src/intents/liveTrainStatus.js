@@ -49,7 +49,7 @@ function getNextStationResponse(trainLiveData) {
     if (!currentStation.has_arrived) {
       return 'The next station is ' + capitalize(currentStation.station.name) +
        ' (' + currentStation.station.code + ')' +
-       ' and the train will arrive by ' + firstRouteStation.scharr
+       ' and the train will arrive by ' + currentStation.scharr
     }
   }
 
