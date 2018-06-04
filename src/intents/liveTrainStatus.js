@@ -39,8 +39,8 @@ function getNextStationResponse(trainLiveData) {
 
   const lastRouteStation = trainLiveData.route[trainLiveData.route.length - 1]
   if (lastRouteStation.has_arrived) {
-    return 'The train has reached the final station ' + capitalize(firstRouteStation.station.name) +
-    ' at ' + firstRouteStation.actarr
+    return 'The train has reached the final station ' + capitalize(lastRouteStation.station.name) +
+    ' at ' + lastRouteStation.actarr + ', ' + lastRouteStation.actarr_date
   }
 
   let currentStation
