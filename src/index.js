@@ -12,7 +12,8 @@ import { log } from './custom'
 import {
   welcome,
   fallback,
-  listTrains
+  listTrains,
+  liveTrainStatus
 } from './intents'
 
 process.env.DEBUG = 'dialogflow:debug' // enables lib debugging statements
@@ -35,6 +36,7 @@ server.post('/askTrains', function (request, response) {
   intentMap.set('Default Welcome Intent', welcome)
   intentMap.set('Default Fallback Intent', fallback)
   intentMap.set('List Trains', listTrains)
+  intentMap.set('Train Live Status', liveTrainStatus)
   intentMap.set('listTrains.context', listTrains)
   agent.handleRequest(intentMap)
 

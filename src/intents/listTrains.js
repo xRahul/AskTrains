@@ -16,11 +16,11 @@ function listTrains(agent) {
   const { fromStationCode, toStationCode, date } = getApiData(agent.parameters)
 
   if (!fromStationCode) {
-    agent.add(`Sorry, I am unable to find the station ${agent.parameters.fromStation}`)
+    agent.add(`Sorry, I am unable to find the station ${agent.parameters.fromStation} you're boarding from`)
     return
   }
   if (!toStationCode) {
-    agent.add(`Sorry, I am unable to find the station ${agent.parameters.toStation}`)
+    agent.add(`Sorry, I am unable to find the station ${agent.parameters.toStation} you're going to`)
     return
   }
 

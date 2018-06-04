@@ -1,4 +1,7 @@
 export function capitalize(str) {
+  if (!str) {
+    return ''
+  }
   var splitStr = str.toLowerCase().split(' ')
   for (var i = 0; i < splitStr.length; i++) {
     // You do not need to check if i is larger than splitStr length, as your for does that for you
