@@ -4,7 +4,7 @@ import 'isomorphic-fetch'
 import {
   // Table,
   List,
-  Card
+  BasicCard
 } from 'actions-on-google'
 
 
@@ -66,7 +66,6 @@ function createGoogleActionsTrainsList(agent, fromStationCode, toStationCode, da
   // conv.ask(new Table(tableProperties))
 
   if (listOfTrains.length === 1) {
-    const responseCard = new Card()
     const trainListItems = getTrainsListItems(listOfTrains)
     let responseText = ''
     for (var trainNumber in trainListItems) {
@@ -75,12 +74,16 @@ function createGoogleActionsTrainsList(agent, fromStationCode, toStationCode, da
         + trainListItems[trainNumber].description
       }
     }
-    responseCard.setTitle('Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date)
-    responseCard.setText(responseText)
+
+    const basicCardProperties = {
+      title: 'Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date,
+      text: responseText
+    }
+
     conv.ask('There is only one train:')
     log('There is only one train:')
     log(responseText)
-    conv.ask(responseCard)
+    conv.ask(new BasicCard(basicCardProperties))
   } else {
     const listProperties = {
       title: 'Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date,
