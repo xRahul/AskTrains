@@ -76,7 +76,7 @@ function createGoogleActionsTrainsList(agent, fromStationCode, toStationCode, da
     }
 
     const basicCardProperties = {
-      title: 'Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date,
+      title: fromStationCode + '-' + toStationCode + ' | ' + date,
       text: responseText
     }
 
