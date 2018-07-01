@@ -3,7 +3,8 @@ import moment from 'moment'
 import 'isomorphic-fetch'
 import {
   // Table,
-  List
+  List,
+  Card
 } from 'actions-on-google'
 
 
@@ -54,9 +55,6 @@ function createGoogleActionsTrainsList(agent, fromStationCode, toStationCode, da
     return
   }
 
-  conv.ask('Please choose a train:')
-  log('Please choose a train:')
-
   // const tableProperties = {
   //   title: 'Trains',
   //   subtitle: fromStationCode + '-' + toStationCode + ' | ' + date,
@@ -67,12 +65,32 @@ function createGoogleActionsTrainsList(agent, fromStationCode, toStationCode, da
   // log(tableProperties)
   // conv.ask(new Table(tableProperties))
 
-  const listProperties = {
-    title: 'Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date,
-    items: getTrainsListItems(listOfTrains)
+  if (listOfTrains.length === 1) {
+    const responseCard = new Card()
+    const trainListItems = getTrainsListItems(listOfTrains)
+    let responseText = ''
+    for (var trainNumber in trainListItems) {
+      if( trainListItems.hasOwnProperty(trainNumber) ) {
+        responseText += trainListItems[trainNumber].title + '\n'
+        + trainListItems[trainNumber].description
+      }
+    }
+    responseCard.setTitle('Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date)
+    responseCard.setText(responseText)
+    conv.ask('There is only one train:')
+    log('There is only one train:')
+    log(responseText)
+    conv.ask(responseCard)
+  } else {
+    const listProperties = {
+      title: 'Trains | ' + fromStationCode + '-' + toStationCode + ' | ' + date,
+      items: getTrainsListItems(listOfTrains)
+    }
+    conv.ask('Please choose a train:')
+    log('Please choose a train:')
+    log(listProperties)
+    conv.ask(new List(listProperties))
   }
-  log(listProperties)
-  conv.ask(new List(listProperties))
 
   agent.add(conv)
 }
