@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "6"
+  - "8"
+
+install:
+  - yarn
+script:
+  - npm run build
+
+cache:
+  yarn: true
