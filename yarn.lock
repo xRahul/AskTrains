@@ -1433,12 +1433,13 @@ detect-libc@^1.0.2:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-dialogflow-fulfillment@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/dialogflow-fulfillment/-/dialogflow-fulfillment-0.4.1.tgz#bc5402152c94297924554d27b21024c4bbeb5369"
-  integrity sha512-Wv0DvHLawvxm5VSrmaKCkoU4+87/bTpESudBqS8n6ALYR6bMtOE9RD/VTpHHKUImeLl01BB0Go31Apr1GBnccg==
+dialogflow-fulfillment@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/dialogflow-fulfillment/-/dialogflow-fulfillment-0.6.1.tgz#1950e3fea82e2f815967a18173b5edaaff23d582"
+  integrity sha512-lBnjPyXmO0P3grJfNBPTbVX1J3GVCBE1KZ+dEskbsH1O6DVXvFR/ncYroE85dfqGII7xUukfSjtqd084HT3W+w==
   dependencies:
     debug "^3.1.0"
+    lodash "^4.17.11"
 
 dialogflow@0.5.0:
   version "0.5.0"
