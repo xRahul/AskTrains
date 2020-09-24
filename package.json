@@ -21,7 +21,7 @@
     "didyoumean": "1.2.1",
     "es6-promise": "4.2.5",
     "express": "4.16.4",
-    "isomorphic-fetch": "2.2.1",
+    "isomorphic-fetch": "3.0.0",
     "moment": "2.23.0",
     "morgan": "1.9.1"
   },
